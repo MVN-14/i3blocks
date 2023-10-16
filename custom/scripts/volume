@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+FULL_TEXT=$(amixer -D pulse get Master | awk '/Right:/ {print $5}' | tr '[' ' ' | tr ']' ' ')
+
+echo $FULL_TEXT
+echo $FULL_TEXT

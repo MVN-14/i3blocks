@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+FOREGROUND=\#1ed760
+
+# if spotify isnt playing
+if [[ -z "$(playerctl --player=spotify status)" ]]; then
+  if [ "$BLOCK_BUTTON" == "1" ]; then
+    spotify &>/dev/null & disown
+  else
+    FULL_TEXT=
+    SHORT_TEXT=
+  fi
+else
+  ARTIST=$(playerctl --player=spotify metadata artist)
+  TITLE=$(playerctl --player=spotify metadata title)
+
+  FULL_TEXT=" $ARTIST - $TITLE"
+  SHORT_TEXT=$TITLE
+fi
+
+
+echo $FULL_TEXT
+echo $SHORT_TEXT 
+echo $FOREGROUND
+

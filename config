@@ -1,0 +1,31 @@
+command=~/.config/i3blocks/custom/scripts/$BLOCK_NAME
+separator_block_width=15
+separator=true
+align=center
+markup=pango
+
+[nord]
+label=vpn:
+interval=10
+min_width=70
+
+
+[spotify]
+interval=5
+signal=11
+min_width=13
+align=left
+
+[audio]
+label=oad:
+interval=once
+
+[volume]
+label=vol 󰕾
+interval=once
+signal=11
+
+[time]
+command=date +"%Y/%m/%d %H:%M "
+interval=5
+
