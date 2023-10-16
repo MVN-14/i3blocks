@@ -9,19 +9,25 @@ label=vpn:
 interval=10
 min_width=70
 
-
 [spotify]
 interval=5
 signal=11
 min_width=13
-align=left
 
 [audio]
-label=oad:
 interval=once
+command=echo oad:
+separator=false
+[select-laptop-audio]
+interval=once
+signal=12
+separator=false
+[select-focusrite-audio]
+interval=once
+signal=12
 
 [volume]
-label=vol 󰕾
+label=󰕾
 interval=once
 signal=11
 

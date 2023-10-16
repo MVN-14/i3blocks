@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+FULL_TEXT="󰤽"
+FOREGROUND="#FFFFFF"
+
+STATUS="$(pactl list short sinks | awk '/Focusrite/ {print $NF}')"
+if [ "$STATUS" == "RUNNING" ]; then
+  FOREGROUND="#00FF00"
+else
+  if [ "$BLOCK_BUTTON" -eq "1" ]; then
+    SINK_IDX="$(pactl list short sinks | awk '/Focusrite/ {print $1}')"
+    pactl set-default-sink $SINK_IDX
+    FOREGROUND="#00FF00"
+    pkill -SIGRTMIN+12 i3blocks
+  fi
+fi
+
+echo $FULL_TEXT
+echo $FULL_TEXT
+echo $FOREGROUND
