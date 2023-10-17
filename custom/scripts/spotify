@@ -5,7 +5,7 @@ FOREGROUND=\#1ed760
 # if spotify isnt playing
 if [[ -z "$(playerctl --player=spotify status)" ]]; then
   if [ "$BLOCK_BUTTON" == "1" ]; then
-    spotify &>/dev/null & disown
+    setsid -f spotify
   else
     FULL_TEXT=
     SHORT_TEXT=
@@ -13,8 +13,12 @@ if [[ -z "$(playerctl --player=spotify status)" ]]; then
 else
   ARTIST=$(playerctl --player=spotify metadata artist)
   TITLE=$(playerctl --player=spotify metadata title)
+  
+  FULL_TEXT=$(echo " $ARTIST - $TITLE")
+  if [ ${#FULL_TEXT} -gt "60" ]; then
+    FULL_TEXT=$(echo "$FULL_TEXT" | cut -c -50)...
+  fi
 
-  FULL_TEXT=" $ARTIST - $TITLE"
   SHORT_TEXT=$TITLE
 fi
 

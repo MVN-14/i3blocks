@@ -14,18 +14,6 @@ interval=5
 signal=11
 min_width=13
 
-[audio]
-interval=once
-command=echo oad:
-separator=false
-[select-laptop-audio]
-interval=once
-signal=12
-separator=false
-[select-focusrite-audio]
-interval=once
-signal=12
-
 [volume]
 label=󰕾
 interval=once
