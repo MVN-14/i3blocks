@@ -14,8 +14,9 @@ else
   ARTIST=$(playerctl --player=spotify metadata artist)
   TITLE=$(playerctl --player=spotify metadata title)
   
-  FULL_TEXT=$(echo " $ARTIST - $TITLE")
-  if [ ${#FULL_TEXT} -gt "60" ]; then
+  # Escaping ampersands isnt working correctly so replacing them with nerd font icons for now
+  FULL_TEXT=$(echo " ${ARTIST/&/󰪍} - ${TITLE/&/󰪍}") 
+  if [ ${#FULL_TEXT} -gt "60" ]; then     
     FULL_TEXT=$(echo "$FULL_TEXT" | cut -c -50)...
   fi
 
