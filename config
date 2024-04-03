@@ -1,25 +1,31 @@
 command=~/.config/i3blocks/custom/scripts/$BLOCK_NAME
-separator_block_width=15
+separator_block_width=25
 separator=true
 align=center
 markup=pango
+color=#157ede
+
+[thunderbird]
+full_text= 
+interval=once
 
 [nord]
-label=vpn:
 interval=10
-min_width=70
 
 [spotify]
 interval=5
 signal=11
-min_width=13
 
 [volume]
 label=󰕾
 interval=once
 signal=11
 
+[date]
+command=date +"%A, %B %d"
+interval=5
+
 [time]
-command=date +"%Y/%m/%d %I:%M %p"
+command=date +"%_I:%M %p "
 interval=5
 
